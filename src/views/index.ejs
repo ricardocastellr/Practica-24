@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/assets/style.css" type="text/css" rel="stylesheet" />
+    <title>Catálogo</title>
+  </head>
+  <!-- Creamos la tabla con parametros EJS -->
+  <body>
+    <h1>Busqueda</h1>
+    <form action="/find" method="post">
+      <label for="criterio">Criterio</label>
+      <input type="text" id="criteria" name="criteria"><br><br>
+      <input type="submit" value="Buscar">
+    </form>
+    <h1>Catálogo de personas</h1>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Tipo de Sangre</th>
+          <th>NSS</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i=0; i < Persons.length; i++) { %>
+        <tr>
+          <td><%= Persons[i].nombre %></td>
+          <td><%= Persons[i].edad %></td>
+          <td><%= Persons[i].tipoSangre %></td>
+          <td><%= Persons[i].nss %></td>
+          <td>
+            <a href="<%= `findById/${Persons[i]._id}` %>">Editar</a> <!-- Lo redireccionamos al endpoint findById para buscar por id-->
+          </td>
+          <td>
+            <a href="<%= `deletePerson/${Persons[i]._id}` %>">Borrar</a> <!-- Lo redireccionamos al endpoint deletePerson para buscar por id-->
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <a href="./addPerson">Agregar</a> <!-- Lo redireccionamos al endpoint addPerson que es donde estará el formulario-->
+  </body>
+</html>

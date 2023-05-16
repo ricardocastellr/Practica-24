@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Agregar persona</h1>
+    <form action="/addPerson" method="POST">
+        <label for="nss">NSS:</label>
+        <input type="text" id="nss" name="nss"><br><br>
+        <label for="nombre" >Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+        <label for="edad">Edad:</label>
+        <input type="text" id="edad" name="edad"><br><br>
+        <label for="tipoSangre">Tipo de sangre:</label>
+        <input type="text" id="tipoSangre" name="tipoSangre"><br><br>
+
+        <input type="submit" value="Submit">
+
+        <!-- Todo este formulario es para enviar la informacion de manera correcta -->
+        <!-- Es importante ver que el nombre los id y los req en server tengan el mismo nombre. -->
+    </form>
+</body>
+</html>
